@@ -5,6 +5,18 @@
     android:id="@+id/coordinatorLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+    <com.github.clans.fab.FloatingActionButton
+        android:id="@+id/fab"
+        fab:layout_behavior="FAB.Demo.FloatingActionButtonBehavior"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|left"
+        android:layout_marginBottom="12dp"
+        android:layout_marginLeft="16dp"
+        android:src="@drawable/ic_menu"
+        fab:fab_elevationCompat="4dp"
+        fab:fab_showAnimation="@anim/jump_from_down"
+        fab:fab_hideAnimation="@anim/jump_to_down" />
     <com.github.clans.fab.FloatingActionMenu
         android:id="@+id/menu"
         fab:layout_behavior="FAB.Demo.FloatingActionMenuBehavior"

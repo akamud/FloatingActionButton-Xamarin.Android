@@ -22,6 +22,7 @@ namespace FAB.Demo
     {
         private FloatingActionButton fabSend;
         private FloatingActionButton fabDelete;
+        private FloatingActionButton fab;
         private FloatingActionMenu fam;
         private CoordinatorLayout coordinator;
 
@@ -33,10 +34,14 @@ namespace FAB.Demo
             this.fabSend = FindViewById<FloatingActionButton>(Resource.Id.fabSend);
             this.fabDelete = FindViewById<FloatingActionButton>(Resource.Id.fabDelete);
             this.coordinator = FindViewById<CoordinatorLayout>(Resource.Id.coordinatorLayout);
+            this.fab = FindViewById<FloatingActionButton>(Resource.Id.fab);
 
             this.fam = FindViewById<FloatingActionMenu>(Resource.Id.menu);
             this.fam.HideMenuButton(false);
             this.fam.PostDelayed(() => this.fam.ShowMenuButton(true), 200);
+
+            this.fab.Hide(false);
+            this.fab.PostDelayed(() => fab.Show(true), 200);
         }
 
         protected override void OnResume()
@@ -44,6 +49,7 @@ namespace FAB.Demo
             base.OnResume();
             this.fabSend.Click += FabSend_Click; 
             this.fabDelete.Click += FabDelete_Click;
+            this.fab.Click += FabShow_Click;
         }
 
         protected override void OnPause()
@@ -51,6 +57,7 @@ namespace FAB.Demo
             base.OnPause();
             this.fabSend.Click -= FabSend_Click; 
             this.fabDelete.Click -= FabDelete_Click;
+            this.fab.Click -= FabShow_Click;
         }
 
         private void FabDelete_Click (object sender, EventArgs e)
@@ -68,6 +75,11 @@ namespace FAB.Demo
         private void FabSend_Click (object sender, EventArgs e)
         {
             this.fam.Toggle(true);
+            Snackbar.Make(this.coordinator, "Email sent", Snackbar.LengthLong).Show();
+        }
+
+        private void FabShow_Click (object sender, EventArgs e)
+        {
             Snackbar.Make(this.coordinator, "Email sent", Snackbar.LengthLong).Show();
         }
     }

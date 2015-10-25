@@ -65,6 +65,7 @@
     <Compile Include="Adapter\LanguageAdapter.cs" />
     <Compile Include="SnackActivity.cs" />
     <Compile Include="FloatingActionMenuBehavior.cs" />
+    <Compile Include="FloatingActionButtonBehavior.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
